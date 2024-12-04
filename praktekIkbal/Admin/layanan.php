@@ -40,9 +40,12 @@
                       $tampil = "select *from layanan";
                       $query = mysqli_query($koneksi, $tampil);
                       $no=1;
-                     while($data = mysqli_fetch_array ($query)){
-                      
+        
+
+                     while($data = mysqli_fetch_array ($query,MYSQLI_ASSOC)){
+                  
                   ?>
+
                   <tr>
                     <td><?php echo $no; ?></td>
                     <td><i class="bi <?php echo $data['icon']; ?>"></i></td>

@@ -20,7 +20,7 @@
   </li><!-- End Profile Page Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="pages-faq.html">
+    <a class="nav-link collapsed" href="?page=profil_utm">
       <i class="bi bi-flower1"></i>
       <span>Tentang Kami</span>
     </a>
