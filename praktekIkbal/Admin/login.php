@@ -50,7 +50,7 @@
                       $pass=md5($_POST['password']);
                       $sql = "select *from users where email='$email' and password='$pass'";
                       $query = mysqli_query($koneksi, $sql);
-                      $data = mysqli_fetch_array ($query);
+                      $data = mysqli_fetch_assoc ($query);
                       $row = mysqli_num_rows($query);
                       if($row>0){
                        $_SESSION['email']=$data['email'];
