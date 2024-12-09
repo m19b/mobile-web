@@ -30,9 +30,9 @@
                 <thead>
                   <tr>
                     <th>No.</th>
-                    <th>Judul Layanan</th>
-                    <th>Deskripsi</th>
-                    <th data-type="date" data-format="YYYY/DD/MM">Tanggal</th>
+                    <th>Nama</th>
+                    <th>Judul</th>
+                    <th>Tanggal</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
