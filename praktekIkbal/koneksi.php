@@ -1,19 +1,12 @@
 <?php
-$cek = "dev";
-$nmdb = "dbwebikbal";
+
+include "variabel.php";
 try{
-	$koneksi = mysqli_connect("localhost","root","","$nmdb");
+	$koneksi = mysqli_connect("localhost","root","","$namadb");
 
 }catch(Exception $e){
     echo "Gagal Konek : " . $e->getMessage() ;
-	if ($cek == "dev"){
-		
-mkdir("../mysql/data/$nmdb");
-mkdir("../../mysql/data/$nmdb");
-
-}
+	echo
 exit();
-  }
+  };
 ?>
-
-contoh saja
