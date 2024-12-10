@@ -55,7 +55,7 @@
         </li><!-- End Error 404 Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-blank.html">
+            <a class="nav-link collapsed" href="?page=berita">
                 <i class="bi bi-chat-right-text-fill"></i>
                 <span>Berita</span>
             </a>
