@@ -16,7 +16,9 @@
                 <li><a href="index.php#pricing">Biaya Kuliah</a></li>
                 <li><a href="index.php#team">Dosen</a></li>
                 <li><a href="blog.php">Berita</a></li>
-                <li class="dropdown"><a href="#"><span>Fakultas</span> <i
+                <li><a href="index.php#fakultas">fakultas</a></li>
+
+                <!-- <li class="dropdown"><a href="#"><span>Fakultas</span> <i
                             class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
                         <li><a href="#">Teknik Informatika</a></li>
@@ -25,7 +27,7 @@
                         <li><a href="#">Deep Dropdown 4</a></li>
                         <li><a href="#">Deep Dropdown 5</a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li><a href="index.php#contact">Contact</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

@@ -6,11 +6,11 @@
               <!-- Sales Card -->
               <div class="col-xxl-10">
                   <div class="pagetitle">
-                      <h1>Berita</h1>
+                      <h1>Dosen</h1>
                       <nav>
                           <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="media.php">Home</a></li>
-                              <li class="breadcrumb-item active">Berita</li>
+                              <li class="breadcrumb-item active">Dosen</li>
                           </ol>
                       </nav>
                   </div><!-- End Page Title -->
@@ -24,9 +24,9 @@
 
               </div><!-- End Revenue Card -->
 
+
           </div>
       </div>
-
 
 
 
@@ -40,7 +40,7 @@
                       <div class="card-body">
 
 
-                          <h5 class="card-title">Kelola Berita</h5>
+                          <h5 class="card-title">Dosen Universitas Mataram</h5>
 
                           <div class="col-12">
 
@@ -52,16 +52,17 @@
                               <thead>
                                   <tr>
                                       <th>No.</th>
-                                      <th>Gambar</th>
-                                      <th>Kategori</th>
-                                      <th>Judul</th>
-                                      <th>Tgl Publis</th>
+                                      <th>Foto</th>
+                                      <th>NIDN</th>
+                                      <th>Nama</th>
+                                      <th>Jabatan</th>
+                                      <th>Fakultas</th>
                                       <th>Aksi</th>
                                   </tr>
                               </thead>
                               <tbody>
                                   <?php
-                      $tampil = "select *from Berita";
+                      $tampil = "select *from dosen";
                       $query = mysqli_query($koneksi, $tampil);
                       $no=1;
         
@@ -72,16 +73,17 @@
 
                                   <tr>
                                       <td><?php echo $no; ?></td>
-                                      <td><img height="50" width="50" src="assets/img/berita/<?=$data['gambar']?>"
+                                      <td><img height="50" width="50" src="assets/img/dosen/<?=$data['foto']?>"
                                               alt="">
                                       </td>
-                                      <td><?=$data['kategori']?></td>
-                                      <td><?=$data['judul']?></td>
-                                      <td><?=$data['tanggal_publikasi']?></td>
+                                      
+                                      <td><?=$data['nidn']?></td>
+                                      <td><?=$data['nama']?></td>
+                                      <td><?=$data['jabatan']?></td>
+                                      <td><?=$data['fakultas']?></td>
 
-                                      <td><a href="?page=berita_add&id=<?=$data['id']?>"><i
-                                                  class="bi bi-pencil"></i></a>&nbsp;<a
-                                              href="?page=berita_delete&id=<?=$data['id']?>"><i
+                                      <td><a href="?page=dossen_edit&id=<?=$data['id']?>"><i
+                                                  class="bi bi-pencil"></i></a>&nbsp;<a href="?page=dossen_delete&id=<?=$data['id']?>"><i
                                                   class="bi bi-trash"></i>&nbsp;</a></td>
                                   </tr>
                                   <?php

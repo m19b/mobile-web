@@ -48,7 +48,7 @@
         </li><!-- End Login Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-error-404.html">
+            <a class="nav-link collapsed" href="?page=dosen">
                 <i class="bi bi-file-person-fill"></i>
                 <span>Dosen</span>
             </a>

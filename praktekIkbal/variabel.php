@@ -1,5 +1,5 @@
 <?php
-    $namadb = "dbwebikball";
+    $namadb = "dbweb";
     $cek = "dev";
 
     $isitb = "
@@ -21,6 +21,7 @@ Date: 10/12/2024 15:33:34
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
 
 -- ----------------------------
 -- Table structure for berita
@@ -209,9 +210,69 @@ PRIMARY KEY (`email`) USING BTREE
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('ikbal@gmail.com', 'caf1a3dfb505ffed0d024130f58c5cfa', 'Muhammad Ikbal');
+INSERT INTO `users` VALUES ('ikbal@gmail.com', 'caf1a3dfb505ffed0d024130f58c5cfa', 'Muhammad Ikbal'),
+ ('admin@gmail.com', '202cb962ac59075b964b07152d234b70', 'Admin');
 
-SET FOREIGN_KEY_CHECKS = 1;
+ DROP TABLE IF EXISTS dosen;
+CREATE TABLE dosen (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nama VARCHAR(100),
+    nidn VARCHAR(20),
+    jabatan VARCHAR(50),
+    departemen VARCHAR(50),
+    fakultas VARCHAR(50),
+    foto VARCHAR(255),
+    email VARCHAR(100),
+    no_telp VARCHAR(20),
+    alamat TEXT,
+    facebook VARCHAR(100),
+    twitter VARCHAR(100),
+    instagram VARCHAR(100)
+);
+INSERT INTO dosen (nama, nidn, jabatan, departemen, fakultas, foto, email, no_telp, alamat, facebook, twitter, instagram)
+VALUES
+    ('Nama Dosen 1', '1234567890', 'Lektor', 'Informatika', 'Sains dan Teknologi', 'foto1.jpg', 'dosen1@example.com', '081234567890', 'Jl. Contoh 1', 'https://www.facebook.com/dosen1', '@dosen1', 'dosen1'),
+    ('Nama Dosen 2', '9876543210', 'Asisten Ahli', 'Matematika', 'Sains dan Teknologi', 'foto2.jpg', 'dosen2@example.com', '081234567891', 'Jl. Contoh 2', 'https://www.facebook.com/dosen2', '@dosen2', 'dosen2');
+
+ DROP TABLE IF EXISTS fakultas;
+   CREATE TABLE fakultas (
+    id_fakultas INT PRIMARY KEY AUTO_INCREMENT,
+    nama_fakultas VARCHAR(100) NOT NULL,
+    singkatan VARCHAR(10) NOT NULL,
+    dekan VARCHAR(100),
+    gedung VARCHAR(50),
+    telepon VARCHAR(20),
+    email VARCHAR(100),
+    website VARCHAR(255)
+);
+
+INSERT INTO fakultas (nama_fakultas, singkatan, dekan, gedung, telepon, email, website)
+VALUES 
+    ('Fakultas Teknologi Informasi dan Komunikasi', 'FTIK', 'Prof. Budi Santoso', 'G1', '03701234567', 'ftik@utmmataram.ac.id', 'https://utmmataram.ac.id/ftik'),
+    ('Fakultas Ilmu Sosial', 'FIS', 'Dr. Ani Lestari', 'G2', '037087654321', 'fis@utmmataram.ac.id', 'https://utmmataram.ac.id/fis'),
+    ('Fakultas Vokasi', 'FV', 'Ir. Andi Nugraha', 'G3', '037098765432', 'fv@utmmataram.ac.id', 'https://utmmataram.ac.id/fv');
+
+ DROP TABLE IF EXISTS prodi;
+    CREATE TABLE prodi (
+    id_prodi INT PRIMARY KEY AUTO_INCREMENT,
+    nama_prodi VARCHAR(100) NOT NULL,
+    singkatan VARCHAR(10) NOT NULL,
+    id_fakultas INT,
+    FOREIGN KEY (id_fakultas) REFERENCES fakultas(id_fakultas)
+);
+
+INSERT INTO prodi (nama_prodi, singkatan, id_fakultas)
+VALUES 
+    ('Sistem Informasi', 'SI', 1),
+    ('Teknik Informatika', 'TI', 1),
+    ('Ilmu Komputer', 'ILKOM', 1),
+    ('Hukum', 'HUKUM', 2),
+    ('Manajemen', 'MAN', 2),
+    ('Komputerisasi Akuntansi', 'KA', 3),
+    ('Manajemen Informatika', 'MI', 3);
+
+    
+    SET FOREIGN_KEY_CHECKS = 1;
     "
 
 ?>
