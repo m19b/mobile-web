@@ -62,14 +62,14 @@
         </li><!-- End Blank Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-blank.html">
+            <a class="nav-link collapsed" href="?page=fakultas">
                 <i class="bi bi-bookmarks-fill"></i>
                 <span>Fakultas</span>
             </a>
         </li><!-- End Blank Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-blank.html">
+            <a class="nav-link collapsed" href="?page=kontak">
                 <i class="bi bi-whatsapp"></i>
                 <span>Kontak</span>
             </a>
