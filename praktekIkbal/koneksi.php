@@ -15,3 +15,5 @@ mkdir("../../mysql/data/$nmdb");
 exit();
   }
 ?>
+
+contoh saja
