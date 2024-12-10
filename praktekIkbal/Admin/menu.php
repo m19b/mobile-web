@@ -41,7 +41,7 @@
         </li><!-- End Register Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-login.html">
+            <a class="nav-link collapsed" href="?page=biayakuliah">
                 <i class="bi bi-cash"></i>
                 <span>Biaya Kuliah</span>
             </a>

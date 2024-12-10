@@ -44,43 +44,7 @@
 
 <body class="index-page">
 
-    <header id="header" class="header d-flex align-items-center fixed-top">
-        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-
-            <a href="index.php" class="logo d-flex align-items-center me-auto me-xl-0">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="assets/img/logo.png" alt="">
-                <h1 class="sitename">UTM</h1><span>.</span>
-            </a>
-
-            <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a href="index.php#home" class="active">Home</a></li>
-                    <li><a href="index.php#about">Tentang Kami</a></li>
-                    <li><a href="index.php#services">Layanan</a></li>
-                    <li><a href="index.php#portfolio">Galeri</a></li>
-                    <li><a href="index.php#pricing">Biaya Kuliah</a></li>
-                    <li><a href="index.php#team">Dosen</a></li>
-                    <li><a href="blog.php">Berita</a></li>
-                    <li class="dropdown"><a href="#"><span>Fakultas</span> <i
-                                class="bi bi-chevron-down toggle-dropdown"></i></a>
-                        <ul>
-                            <li><a href="#">Teknik Informatika</a></li>
-                            <li><a href="#">Sistem Informasi</a></li>
-                            <li><a href="#">Teknologi Komputer</a></li>
-                            <li><a href="#">Deep Dropdown 4</a></li>
-                            <li><a href="#">Deep Dropdown 5</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="index.php#contact">Contact</a></li>
-                </ul>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-            </nav>
-
-            <a class="btn-getstarted" href="index.php#about">Mulai</a>
-
-        </div>
-    </header>
+    <?php include ("menu.php"); ?>
 
     <main class="main">
 
@@ -92,7 +56,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10">
-                        <h2 data-aos="fade-up" data-aos-delay="100">Selamat Datang dgdi Kampus Kami!!!</h2>
+                        <h2 data-aos="fade-up" data-aos-delay="100">Selamat Datang di Kampus Kami!!!</h2>
                         <p data-aos="fade-up" data-aos-delay="200">Universitas Teknologi Mataram</p>
                     </div>
                     <div class="col-lg-5" data-aos="fade-up" data-aos-delay="300">
@@ -298,7 +262,6 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Galeri</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -353,63 +316,48 @@
             <div class="container" data-aos="zoom-in" data-aos-delay="100">
 
                 <div class="row g-4">
+                    <?php 
+                    $query = mysqli_query($koneksi,"SELECT *FROM biayakuliah ORDER BY urut");
+                    while($tampilbk = mysqli_fetch_array($query)){
+                  $idbk = $tampilbk['id'];
+                        
+                    ?>
+
+
 
                     <div class="col-lg-4">
-                        <div class="pricing-item">
-                            <h3>Free Plan</h3>
-                            <div class="icon">
-                                <i class="bi bi-box"></i>
-                            </div>
-                            <h4><sup>$</sup>0<span> / month</span></h4>
-                            <ul>
-                                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                                <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                                <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span>
-                                </li>
-                            </ul>
-                            <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
-                        </div>
-                    </div><!-- End Pricing Item -->
-
-                    <div class="col-lg-4">
-                        <div class="pricing-item featured">
-                            <h3>Business Plan</h3>
-                            <div class="icon">
+                        <div class="pricing-item <?=$tampilbk['posisi']?>">
+                            <!-- featured -->
+                            <h3><?=$tampilbk['fakultas']?></h3>
+                            <h3><?=$tampilbk['prodi']?></h3>
+                            <div class=" icon">
                                 <i class="bi bi-rocket"></i>
                             </div>
 
-                            <h4><sup>$</sup>29<span> / month</span></h4>
+                            <h4><sup>Rp. </sup><?php echo number_format($tampilbk['nominal']) ?><span> /
+                                    <?=$tampilbk['satuan'] ?></span></h4>
+
+
                             <ul>
-                                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+                                <?php 
+                            $query2 = mysqli_query($koneksi,"SELECT *FROM biayakuliah_item WHERE biayakuliah_id = '$idbk' ORDER BY urut ");
+                            while($titem = mysqli_fetch_array($query2)){
+                            ?>
+                                <li class="<?=$titem['coret'] ?>"><i class="bi <?=$titem['ikon']?>"></i>
+                                    <span><?=$titem['uraian']?></span>
+                                </li>
+
+                                <?php };?>
+
                             </ul>
+
                             <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
                         </div>
                     </div><!-- End Pricing Item -->
+                    <?php };?>
 
 
-                    <div class="col-lg-4">
-                        <div class="pricing-item">
-                            <h3>Developer Plan</h3>
-                            <div class="icon">
-                                <i class="bi bi-send"></i>
-                            </div>
-                            <h4><sup>$</sup>49<span> / month</span></h4>
-                            <ul>
-                                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                            </ul>
-                            <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
-                        </div>
-                    </div><!-- End Pricing Item -->
+
 
                 </div>
 
